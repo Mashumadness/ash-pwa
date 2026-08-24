@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Pokémon Advanced - Temporada 6</title>
+  
+  <!-- PWA Meta Tags -->
+  <meta name="theme-color" content="#ff3e3e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Pokémon T6">
+  <meta name="mobile-web-app-capable" content="yes">
+  
+  <!-- Icons -->
+  <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  
+  <!-- Manifest -->
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- Left Pane: Sidebar & Episode List -->
+    <aside class="sidebar">
+      <header class="app-header">
+        <div class="logo-area">
+          <div class="pokeball-logo"></div>
+          <h1>Pokémon Advanced</h1>
+        </div>
+        <p class="subtitle">Temporada 6 (Región Hoenn)</p>
+      </header>
+      
+      <!-- Progress Section -->
+      <section class="progress-section">
+        <div class="progress-info">
+          <span>Progreso de vistos:</span>
+          <span id="progress-text">0 / 40 (0%)</span>
+        </div>
+        <div class="progress-bar-container">
+          <div id="progress-bar-fill" class="progress-bar-fill" style="width: 0%;"></div>
+        </div>
+      </section>
+      
+      <!-- Filters and Search -->
+      <section class="search-filters">
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="Buscar por número o título..." autocomplete="off">
+          <button id="clear-search-btn" class="clear-btn" aria-label="Limpiar búsqueda">&times;</button>
+        </div>
+        <div class="filter-buttons">
+          <button id="filter-all" class="filter-btn active">Todos</button>
+          <button id="filter-pending" class="filter-btn">Pendientes</button>
+          <button id="filter-seen" class="filter-btn">Vistos</button>
+        </div>
+      </section>
+      
+      <!-- Episode List Container -->
+      <div class="episode-list-container">
+        <ul id="episode-list" class="episode-list">
+          <!-- Dynamically populated via JS -->
+          <li class="loading-state">Cargando episodios...</li>
+        </ul>
+      </div>
+    </aside>
+    
+    <!-- Right Pane: Active Player and Info -->
+    <main class="main-content">
+      
+      <!-- Video Player Container -->
+      <section class="player-section">
+        <div class="video-wrapper">
+          <!-- Placeholder when no video is selected -->
+          <div id="video-placeholder" class="video-placeholder">
+            <div class="placeholder-icon">▶</div>
+            <h3>Selecciona un episodio para comenzar</h3>
+            <p>Elige un capítulo de la barra lateral para reproducir el streaming.</p>
+          </div>
+          
+          <!-- Native HTML5 Video Element -->
+          <video id="main-video" controls playsinline preload="auto">
+            <source id="video-source" src="" type="video/mp4">
+            Tu navegador no soporta la reproducción de video HTML5.
+          </video>
+        </div>
+      </section>
+      
+      <!-- Episode Info and Details -->
+      <section id="episode-details" class="episode-details hidden">
+        <div class="details-header">
+          <div class="title-row">
+            <span id="detail-number" class="episode-badge">Episodio 1</span>
+            <h2 id="detail-title">Título del Episodio</h2>
+          </div>
+          <div class="action-buttons">
+            <button id="btn-toggle-seen" class="action-btn">
+              <span class="btn-icon">✓</span>
+              <span class="btn-text">Marcar como Visto</span>
+            </button>
+            <a id="btn-original-link" href="#" target="_blank" rel="noopener noreferrer" class="link-btn">
+              Ver en Web Original
+            </a>
+          </div>
+        </div>
+        <hr class="divider">
+        <div class="details-body">
+          <h3>Sinopsis</h3>
+          <p id="detail-description">Descripción del episodio...</p>
+        </div>
+      </section>
+      
+    </main>
+  </div>
+
+  <!-- PWA Service Worker Registration -->
+  <script src="app.js" defer></script>
+</body>
+</html>

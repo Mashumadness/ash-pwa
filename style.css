@@ -1,0 +1,668 @@
+/* ==========================================================================
+   CSS Styles for Pokémon Advanced PWA
+   Optimized for Android Tablets (Landscape & Portrait) and Touch Inputs
+   ========================================================================== */
+
+/* Variables */
+:root {
+  --bg-primary: #121212;
+  --bg-surface: #1e1e1e;
+  --bg-surface-hover: #2d2d2d;
+  --bg-surface-active: #3a3a3a;
+  
+  --border-color: #2c2c2c;
+  
+  --color-text-main: #f5f5f7;
+  --color-text-muted: #a1a1a6;
+  
+  --brand-red: #ff3e3e;
+  --brand-red-hover: #e03232;
+  --brand-blue: #0092ca;
+  --brand-green: #2e7d32;
+  --brand-green-hover: #1b5e20;
+  
+  --font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --sidebar-width: 380px;
+}
+
+/* Reset and Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent; /* Disable default tap highlight on Android */
+}
+
+html, body {
+  background-color: var(--bg-primary);
+  color: var(--color-text-main);
+  font-family: var(--font-family);
+  font-size: 16px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  user-select: none; /* Avoid accidental text selection during double tap */
+}
+
+/* App Container - Split screen layout */
+.app-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   LEFT PANE: Sidebar & Episode List
+   ========================================================================== */
+.sidebar {
+  width: var(--sidebar-width);
+  min-width: 320px;
+  max-width: 450px;
+  background-color: var(--bg-surface);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  z-index: 10;
+}
+
+/* App Header */
+.app-header {
+  padding: 20px 20px 15px 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pokeball-logo {
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(to bottom, var(--brand-red) 45%, #121212 45%, #121212 55%, #fff 55%);
+  border-radius: 50%;
+  border: 2.5px solid #121212;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.pokeball-logo::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+  border: 2px solid #121212;
+  border-radius: 50%;
+}
+
+.app-header h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.subtitle {
+  font-size: 0.85rem;
+  color: var(--brand-blue);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* Progress Tracker */
+.progress-section {
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+#progress-text {
+  color: var(--color-text-main);
+  font-weight: 600;
+}
+
+.progress-bar-container {
+  height: 8px;
+  background-color: var(--bg-primary);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--brand-red) 0%, var(--brand-blue) 100%);
+  border-radius: 4px;
+  width: 0%;
+  transition: width 0.4s cubic-bezier(0.1, 0.8, 0.3, 1);
+}
+
+/* Search and Filters */
+.search-filters {
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 12px 40px 12px 16px;
+  background-color: var(--bg-primary);
+  border: 1.5px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--color-text-main);
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-box input:focus {
+  border-color: var(--brand-red);
+}
+
+.clear-btn {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 2px;
+  display: none; /* Displayed dynamically via JS */
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.filter-btn {
+  flex: 1;
+  padding: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 6px;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.filter-btn.active {
+  background-color: var(--brand-red);
+  border-color: var(--brand-red);
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(255, 62, 62, 0.25);
+}
+
+/* Episode List scroll area */
+.episode-list-container {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* Momentum scrolling on iOS */
+}
+
+.episode-list {
+  list-style: none;
+}
+
+/* Episode List Item styling */
+.episode-item {
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border-color);
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+.episode-item:hover {
+  background-color: var(--bg-surface-hover);
+}
+
+.episode-item:active {
+  background-color: var(--bg-surface-active);
+}
+
+/* Active Episode */
+.episode-item.active {
+  background-color: var(--bg-surface-hover);
+}
+
+.episode-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: var(--brand-red);
+}
+
+/* Episode thumbnail wrapper */
+.ep-thumb-wrapper {
+  position: relative;
+  width: 96px;
+  height: 54px;
+  min-width: 96px;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #000;
+  margin-right: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.ep-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay badges on thumbnail */
+.ep-number-badge {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 5px;
+  border-radius: 3px;
+  border: 0.5px solid rgba(255,255,255,0.2);
+}
+
+.ep-seen-badge {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 18px;
+  height: 18px;
+  background-color: var(--brand-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.65rem;
+  font-weight: bold;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.episode-item.seen .ep-seen-badge {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Episode Text Content */
+.ep-text-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
+}
+
+.ep-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ep-meta {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+/* List Item quick toggle seen button */
+.ep-check-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px dashed var(--color-text-muted);
+  background: none;
+  margin-left: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+  font-size: 0.95rem;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.episode-item.seen .ep-check-btn {
+  border-color: var(--brand-green);
+  background-color: rgba(46, 125, 50, 0.15);
+  color: var(--brand-green);
+  border-style: solid;
+}
+
+.episode-item:hover .ep-check-btn {
+  border-color: var(--brand-red);
+}
+
+/* Scrollbar styles for modern scroll area */
+.episode-list-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.episode-list-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.episode-list-container::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  border-radius: 3px;
+}
+
+/* Loading & Empty states */
+.loading-state, .empty-state {
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+
+/* ==========================================================================
+   RIGHT PANE: Video Player and Details
+   ========================================================================== */
+.main-content {
+  flex: 1;
+  background-color: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  height: 100%;
+}
+
+/* Video Section */
+.player-section {
+  width: 100%;
+  background-color: #000;
+  position: relative;
+  /* Maintain 16:9 ratio */
+  aspect-ratio: 16 / 9;
+  max-height: 65vh;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.video-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#main-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: none; /* Displayed dynamically via JS */
+}
+
+/* Player Placeholder state */
+.video-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background: radial-gradient(circle, #222 0%, #000 100%);
+  color: var(--color-text-main);
+  z-index: 5;
+}
+
+.placeholder-icon {
+  font-size: 3.5rem;
+  width: 80px;
+  height: 80px;
+  background-color: rgba(255, 62, 62, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-bottom: 20px;
+  padding-left: 6px; /* Offset to center the triangle visually */
+  box-shadow: 0 4px 15px rgba(255, 62, 62, 0.4);
+  animation: pulse 2.5s infinite;
+}
+
+.video-placeholder h3 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.video-placeholder p {
+  color: var(--color-text-muted);
+  max-width: 400px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Episode Details Section */
+.episode-details {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.episode-details.hidden {
+  display: none;
+}
+
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.episode-badge {
+  background-color: var(--brand-blue);
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+#detail-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+/* Action Buttons underneath video */
+.action-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.action-btn, .link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  height: 46px;
+  text-decoration: none;
+  font-family: var(--font-family);
+}
+
+.action-btn {
+  background-color: var(--bg-surface);
+  border: 1.5px solid var(--border-color);
+  color: var(--color-text-main);
+}
+
+.action-btn:hover {
+  background-color: var(--bg-surface-hover);
+}
+
+/* Action button seen mode */
+.action-btn.seen {
+  background-color: var(--brand-green);
+  border-color: var(--brand-green);
+  color: white;
+}
+
+.action-btn.seen:hover {
+  background-color: var(--brand-green-hover);
+}
+
+.link-btn {
+  background-color: transparent;
+  border: 1.5px solid var(--brand-blue);
+  color: var(--brand-blue);
+}
+
+.link-btn:hover {
+  background-color: rgba(0, 146, 202, 0.08);
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background-color: var(--border-color);
+}
+
+.details-body h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--brand-blue);
+}
+
+#detail-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-main);
+  text-align: justify;
+}
+
+/* ==========================================================================
+   ANIMATIONS & MEDIA QUERIES
+   ========================================================================== */
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 4px 15px rgba(255, 62, 62, 0.4); }
+  50% { transform: scale(1.05); box-shadow: 0 4px 25px rgba(255, 62, 62, 0.6); }
+  100% { transform: scale(1); box-shadow: 0 4px 15px rgba(255, 62, 62, 0.4); }
+}
+
+/* Stacking for Portrait Mode (Tablet Portrait & Mobiles) */
+@media (max-width: 900px) {
+  .app-container {
+    flex-direction: column;
+    overflow-y: auto;
+    height: 100vh;
+  }
+
+  .sidebar {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    border-right: none;
+    border-top: 1px solid var(--border-color);
+    flex: none; /* Don't grow, let content define height */
+  }
+
+  .episode-list-container {
+    max-height: 400px; /* Limit scroll area height in portrait */
+    height: auto;
+  }
+
+  .main-content {
+    width: 100%;
+    height: auto;
+    flex: none;
+    overflow: visible; /* Scroll is handled by app-container */
+  }
+
+  .player-section {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    max-height: 45vh; /* Don't take too much space in portrait */
+  }
+
+  .episode-details {
+    padding: 20px;
+  }
+
+  #detail-title {
+    font-size: 1.3rem;
+  }
+}
+
+/* Mobile specific improvements (under 600px width) */
+@media (max-width: 600px) {
+  .details-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .action-buttons {
+    width: 100%;
+  }
+
+  .action-btn, .link-btn {
+    flex: 1;
+    justify-content: center;
+  }
+}
