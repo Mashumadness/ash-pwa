@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Pokémon Advanced - Temporada 6</title>
+  <title>Pokémon Advanced — Serie de Ash</title>
   
   <!-- PWA Meta Tags -->
   <meta name="theme-color" content="#ff3e3e">
@@ -28,16 +28,25 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="app-container">
+  <!-- Season Picker Screen -->
+  <div id="season-picker-screen" class="season-picker-screen hidden">
+    <header class="season-picker-header">
+      <img src="./teamrocket.png" alt="Team Rocket" class="season-picker-hero">
+    </header>
+    <div id="season-grid" class="season-grid"></div>
+  </div>
+
+  <!-- Main App Screen -->
+  <div id="main-app-screen" class="app-container hidden">
     
     <!-- Left Pane: Sidebar & Episode List -->
     <aside class="sidebar">
       <header class="app-header">
-        <div class="logo-area">
-          <div class="pokeball-logo"></div>
-          <h1>Pokémon Advanced</h1>
+        <button id="back-to-seasons-btn" class="back-btn" aria-label="Volver a temporadas">←</button>
+        <div class="sidebar-brand">
+          <img id="sidebar-season-logo" class="sidebar-season-logo" src="" alt="">
+          <span id="sidebar-season-label" class="sidebar-season-label"></span>
         </div>
-        <p class="subtitle">Temporada 6 (Región Hoenn)</p>
       </header>
       
       <!-- Progress Section -->
@@ -143,7 +152,7 @@
       </section>
       
     </main>
-  </div>
+  </div><!-- end main-app-screen -->
 
   <!-- PWA Service Worker Registration -->
   <script src="app.js" defer></script>

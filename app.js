@@ -4,15 +4,17 @@
    ========================================================================== */
 
 // Application State
-let episodes = [];
-let seenEpisodes = new Set();
-let episodeProgress = {}; // { [episodeNumber]: percentage (0-100) }
+let seasons = [];           // metadata from seasons.json
+let activeSeason = null;    // current season object
+let episodes = [];          // episodes of the active season
+let seenEpisodes = new Set(); // keys: "seasonNumber-episodeNumber"
+let episodeProgress = {};     // keys: "seasonNumber-episodeNumber" → percentage
 let activeEpisode = null;
 let currentFilter = "all"; // "all" | "pending" | "seen"
 let searchQuery = "";
 let lastProgressSaveTime = 0;
 let autoplayEnabled = false;
-let autoplayCancelled = false; // true when user dismisses the countdown for the current episode
+let autoplayCancelled = false;
 
 // DOM Elements
 const episodeListEl = document.getElementById("episode-list");
@@ -44,32 +46,145 @@ const autoplayCountdownFill = document.getElementById("autoplay-countdown-fill")
 const autoplayCountdownText = document.getElementById("autoplay-countdown-text");
 const autoplayCancelBtn = document.getElementById("autoplay-cancel-btn");
 
+const seasonPickerScreen = document.getElementById("season-picker-screen");
+const seasonGrid = document.getElementById("season-grid");
+const mainAppScreen = document.getElementById("main-app-screen");
+const backToSeasonsBtn = document.getElementById("back-to-seasons-btn");
+const sidebarSeasonLogo = document.getElementById("sidebar-season-logo");
+const sidebarSeasonLabel = document.getElementById("sidebar-season-label");
+
 // Initialize Application
 async function init() {
-  // 1. Register Service Worker for offline capability
+  // 1. Register Service Worker
   registerServiceWorker();
 
-  // 2. Load Seen Episodes, Playback Progress and Autoplay state from LocalStorage
+  // 2. Load persisted state from localStorage (migrate old format if needed)
+  migrateLocalStorage();
   loadSeenEpisodes();
   loadEpisodeProgress();
   loadAutoplayState();
 
-  // 3. Load Episodes Data
+  // 3. Load season index
   try {
-    const response = await fetch("./episodes.json");
-    if (!response.ok) throw new Error("No se pudo cargar episodes.json");
-    episodes = await response.json();
-    
-    // Render initial list
-    renderEpisodes();
-    updateProgress();
+    const response = await fetch("./seasons.json");
+    if (!response.ok) throw new Error("No se pudo cargar seasons.json");
+    seasons = await response.json();
+    renderSeasonPicker();
   } catch (error) {
     console.error("Error al inicializar la aplicación:", error);
-    episodeListEl.innerHTML = `<li class="empty-state">Error al cargar episodios: ${error.message}</li>`;
   }
 
   // 4. Set Up Event Listeners
   setupEventListeners();
+}
+
+// Migrate old localStorage format (flat episode numbers) to new "season-episode" keys
+function migrateLocalStorage() {
+  const oldSeen = localStorage.getItem("pokemon_seen_episodes");
+  const oldProgress = localStorage.getItem("pokemon_episode_progress");
+  const migrated = localStorage.getItem("pokemon_migrated_v2");
+  if (migrated) return;
+
+  if (oldSeen) {
+    try {
+      const arr = JSON.parse(oldSeen);
+      // If values are plain numbers (old format), prefix with "6-"
+      if (arr.length > 0 && typeof arr[0] === "number") {
+        const newArr = arr.map((n) => `6-${n}`);
+        localStorage.setItem("pokemon_seen_episodes", JSON.stringify(newArr));
+      }
+    } catch (e) { /* ignore */ }
+  }
+
+  if (oldProgress) {
+    try {
+      const obj = JSON.parse(oldProgress);
+      const keys = Object.keys(obj);
+      if (keys.length > 0 && !keys[0].includes("-")) {
+        const newObj = {};
+        keys.forEach((k) => { newObj[`6-${k}`] = obj[k]; });
+        localStorage.setItem("pokemon_episode_progress", JSON.stringify(newObj));
+      }
+    } catch (e) { /* ignore */ }
+  }
+
+  localStorage.setItem("pokemon_migrated_v2", "true");
+}
+
+// Render the season picker grid
+function renderSeasonPicker() {
+  seasonGrid.innerHTML = "";
+  seasons.forEach((season) => {
+    const card = document.createElement("div");
+    card.className = "season-card";
+    card.dataset.seasonNumber = season.number;
+
+    const seenCount = [...seenEpisodes].filter((k) => k.startsWith(`${season.number}-`)).length;
+    const total = season.episode_count;
+    const pct = total > 0 ? Math.round((seenCount / total) * 100) : 0;
+
+    card.innerHTML = `
+      <img class="season-logo" src="${season.logo}" alt="${season.title}" onerror="this.src='${season.logo_png}'">
+      <div class="season-progress-bar-track">
+        <div class="season-progress-bar-fill" style="width:${pct}%"></div>
+      </div>
+      <span class="season-progress-label">Temporada ${season.number} &mdash; ${seenCount}/${total} episodios</span>
+    `;
+    card.addEventListener("click", () => loadSeason(season));
+    seasonGrid.appendChild(card);
+  });
+
+  showScreen("picker");
+}
+
+// Load a season's episodes and switch to the main app view
+async function loadSeason(season) {
+  activeSeason = season;
+  episodes = [];
+  activeEpisode = null;
+  currentFilter = "all";
+  searchQuery = "";
+
+  // Reset player
+  mainVideo.style.display = "none";
+  mainVideo.pause();
+  videoSource.src = "";
+  videoPlaceholder.style.display = "flex";
+  episodeDetails.style.display = "none";
+  if (searchInput) searchInput.value = "";
+
+  // Update sidebar season logo and label
+  if (sidebarSeasonLogo) {
+    sidebarSeasonLogo.src = season.logo;
+    sidebarSeasonLogo.alt = season.title;
+  }
+  if (sidebarSeasonLabel) {
+    sidebarSeasonLabel.textContent = `Temporada ${season.number}`;
+  }
+
+  showScreen("app");
+
+  try {
+    const response = await fetch(season.data);
+    if (!response.ok) throw new Error(`No se pudo cargar ${season.data}`);
+    episodes = await response.json();
+    renderEpisodes();
+    updateProgress();
+  } catch (error) {
+    console.error("Error al cargar temporada:", error);
+    episodeListEl.innerHTML = `<li class="empty-state">Error al cargar episodios: ${error.message}</li>`;
+  }
+}
+
+// Switch between season picker and main app screens
+function showScreen(screen) {
+  if (screen === "picker") {
+    seasonPickerScreen.classList.remove("hidden");
+    mainAppScreen.classList.add("hidden");
+  } else {
+    seasonPickerScreen.classList.add("hidden");
+    mainAppScreen.classList.remove("hidden");
+  }
 }
 
 // Register PWA Service Worker
@@ -154,8 +269,8 @@ function getNextEpisode() {
       ep.number.toString().includes(searchQuery) ||
       ep.description.toLowerCase().includes(searchQuery.toLowerCase());
     if (!matchesSearch) return false;
-    if (currentFilter === "seen") return seenEpisodes.has(ep.number);
-    if (currentFilter === "pending") return !seenEpisodes.has(ep.number);
+    if (currentFilter === "seen") return seenEpisodes.has(epKey(ep.number));
+    if (currentFilter === "pending") return !seenEpisodes.has(epKey(ep.number));
     return true;
   });
 
@@ -210,7 +325,8 @@ function updateProgress() {
   const total = episodes.length;
   if (total === 0) return;
 
-  const seenCount = seenEpisodes.size;
+  const seasonPrefix = activeSeason ? `${activeSeason.number}-` : "6-";
+  const seenCount = [...seenEpisodes].filter((k) => k.startsWith(seasonPrefix)).length;
   const percentage = Math.round((seenCount / total) * 100);
 
   progressText.textContent = `${seenCount} / ${total} (${percentage}%)`;
@@ -232,8 +348,8 @@ function renderEpisodes() {
     if (!matchesSearch) return false;
 
     // Tab filter
-    if (currentFilter === "seen") return seenEpisodes.has(ep.number);
-    if (currentFilter === "pending") return !seenEpisodes.has(ep.number);
+    if (currentFilter === "seen") return seenEpisodes.has(epKey(ep.number));
+    if (currentFilter === "pending") return !seenEpisodes.has(epKey(ep.number));
     return true;
   });
 
@@ -245,14 +361,15 @@ function renderEpisodes() {
   // Build list items
   filtered.forEach((ep) => {
     const li = document.createElement("li");
-    li.className = `episode-item ${seenEpisodes.has(ep.number) ? "seen" : ""} ${
+    const key = epKey(ep.number);
+    li.className = `episode-item ${seenEpisodes.has(key) ? "seen" : ""} ${
       activeEpisode && activeEpisode.number === ep.number ? "active" : ""
     }`;
     li.dataset.number = ep.number;
 
     // Use placeholder image if thumb is missing or invalid
     const imgUrl = ep.image || "icons/icon-192.png";
-    const watchedPercentage = seenEpisodes.has(ep.number) ? 100 : (episodeProgress[ep.number] || 0);
+    const watchedPercentage = seenEpisodes.has(key) ? 100 : (episodeProgress[key] || 0);
 
     li.innerHTML = `
       <div class="ep-thumb-wrapper">
@@ -326,14 +443,20 @@ function selectEpisode(ep) {
   }
 }
 
+// Helper: get the localStorage key for an episode
+function epKey(number) {
+  return activeSeason ? `${activeSeason.number}-${number}` : `6-${number}`;
+}
+
 // Toggle Seen state for an episode
 function toggleEpisodeSeen(number) {
-  if (seenEpisodes.has(number)) {
-    seenEpisodes.delete(number);
+  const key = epKey(number);
+  if (seenEpisodes.has(key)) {
+    seenEpisodes.delete(key);
   } else {
-    seenEpisodes.add(number);
+    seenEpisodes.add(key);
     // Mark playback progress as fully watched
-    episodeProgress[number] = 100;
+    episodeProgress[key] = 100;
     saveEpisodeProgress();
   }
 
@@ -343,7 +466,7 @@ function toggleEpisodeSeen(number) {
   // Rerender list item classes without full redraw to maintain scroll position
   const el = document.querySelector(`.episode-item[data-number="${number}"]`);
   if (el) {
-    if (seenEpisodes.has(number)) {
+    if (seenEpisodes.has(key)) {
       el.classList.add("seen");
       updateEpisodeProgressBar(number, 100);
     } else {
@@ -366,7 +489,7 @@ function toggleEpisodeSeen(number) {
 function updateDetailActionButton() {
   if (!activeEpisode) return;
 
-  const isSeen = seenEpisodes.has(activeEpisode.number);
+  const isSeen = seenEpisodes.has(epKey(activeEpisode.number));
   if (isSeen) {
     btnToggleSeen.classList.add("seen");
     btnToggleSeen.querySelector(".btn-icon").textContent = "✓";
@@ -414,9 +537,9 @@ function setupEventListeners() {
   mainVideo.addEventListener("ended", () => {
     if (activeEpisode) {
       updateEpisodeProgressBar(activeEpisode.number, 100);
-      episodeProgress[activeEpisode.number] = 100;
+      episodeProgress[epKey(activeEpisode.number)] = 100;
       saveEpisodeProgress();
-      if (!seenEpisodes.has(activeEpisode.number)) {
+      if (!seenEpisodes.has(epKey(activeEpisode.number))) {
         toggleEpisodeSeen(activeEpisode.number);
       }
 
@@ -431,6 +554,14 @@ function setupEventListeners() {
         hideAutoplayCountdown();
       }
     }
+  });
+
+  // Back to seasons button
+  backToSeasonsBtn.addEventListener("click", () => {
+    hideAutoplayCountdown();
+    mainVideo.pause();
+    activeSeason = null;
+    renderSeasonPicker();
   });
 
   // Autoplay toggle button
@@ -465,7 +596,7 @@ function handleVideoTimeUpdate() {
 
   // Persist progress periodically (throttled) to avoid excessive writes
   const now = Date.now();
-  episodeProgress[activeEpisode.number] = percentage;
+  episodeProgress[epKey(activeEpisode.number)] = percentage;
   if (now - lastProgressSaveTime > 2000) {
     saveEpisodeProgress();
     lastProgressSaveTime = now;

@@ -1,0 +1,29 @@
+[
+  {
+    "number": 1,
+    "title": "¡Atrápalos ya!",
+    "subtitle": "La serie de Ash — Temporada 1",
+    "logo": "https://pkproject.net/anime/logo/1/season1_logo8.webp",
+    "logo_png": "https://pkproject.net/anime/logo/1/season1_logo8.png",
+    "data": "./season1.json",
+    "episode_count": 82
+  },
+  {
+    "number": 6,
+    "title": "Pokémon: Avanzado",
+    "subtitle": "La serie de Ash — Temporada 6",
+    "logo": "https://pkproject.net/anime/logo/1/season6_logo8.webp",
+    "logo_png": "https://pkproject.net/anime/logo/1/season6_logo8.png",
+    "data": "./season6.json",
+    "episode_count": 40
+  },
+  {
+    "number": 7,
+    "title": "Reto Máximo",
+    "subtitle": "La serie de Ash — Temporada 7",
+    "logo": "https://pkproject.net/anime/logo/1/season7_logo8.webp",
+    "logo_png": "https://pkproject.net/anime/logo/1/season7_logo8.png",
+    "data": "./season7.json",
+    "episode_count": 52
+  }
+]
