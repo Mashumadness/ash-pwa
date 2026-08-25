@@ -64,6 +64,14 @@
         </div>
       </section>
       
+      <!-- Autoplay Toggle -->
+      <div class="autoplay-toggle-bar">
+        <span class="autoplay-label">▶▶ Reproducción automática</span>
+        <button id="autoplay-toggle" class="autoplay-switch" aria-label="Activar reproducción automática" role="switch" aria-checked="false">
+          <span class="autoplay-switch-knob"></span>
+        </button>
+      </div>
+
       <!-- Episode List Container -->
       <div class="episode-list-container">
         <ul id="episode-list" class="episode-list">
@@ -86,6 +94,22 @@
             <p>Elige un capítulo de la barra lateral para reproducir el streaming.</p>
           </div>
           
+          <!-- Autoplay countdown overlay -->
+          <div id="autoplay-overlay" class="autoplay-overlay hidden">
+            <div class="autoplay-overlay-content">
+              <img id="autoplay-next-thumb" class="autoplay-next-thumb" src="" alt="">
+              <div class="autoplay-overlay-info">
+                <span class="autoplay-overlay-label">A continuación</span>
+                <span id="autoplay-next-title" class="autoplay-next-title"></span>
+                <div class="autoplay-countdown-track">
+                  <div id="autoplay-countdown-fill" class="autoplay-countdown-fill"></div>
+                </div>
+                <span id="autoplay-countdown-text" class="autoplay-countdown-text">Siguiente en 5...</span>
+              </div>
+              <button id="autoplay-cancel-btn" class="autoplay-cancel-btn">✕ Cancelar</button>
+            </div>
+          </div>
+
           <!-- Native HTML5 Video Element -->
           <video id="main-video" controls playsinline preload="auto">
             <source id="video-source" src="" type="video/mp4">
