@@ -53,7 +53,9 @@ html, body {
    Season Picker Screen
    ============================== */
 .season-picker-screen {
-  min-height: 100vh;
+  height: 100vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   background-color: var(--bg-primary);
   display: flex;
   flex-direction: column;
