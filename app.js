@@ -33,6 +33,7 @@ const episodeDetails = document.getElementById("episode-details");
 const detailNumber = document.getElementById("detail-number");
 const detailTitle = document.getElementById("detail-title");
 const btnToggleSeen = document.getElementById("btn-toggle-seen");
+const btnCast = document.getElementById("btn-cast");
 const btnOriginalLink = document.getElementById("btn-original-link");
 const detailDescription = document.getElementById("detail-description");
 
@@ -613,6 +614,20 @@ function setupEventListeners() {
       goBackToPicker();
     }
   });
+
+  // Cast button — uses RemotePlayback API (Chrome native, no registration needed)
+  if ("remote" in mainVideo) {
+    mainVideo.remote.watchAvailability((available) => {
+      btnCast.classList.toggle("hidden", !available);
+    }).catch(() => {
+      // watchAvailability not supported, show button anyway
+      btnCast.classList.remove("hidden");
+    });
+
+    btnCast.addEventListener("click", () => {
+      mainVideo.remote.prompt().catch(() => {});
+    });
+  }
 
   // Autoplay toggle button
   autoplayToggleBtn.addEventListener("click", () => {
