@@ -59,8 +59,8 @@ async function init() {
   // 1. Register Service Worker
   registerServiceWorker();
 
-  // Seed initial history state so Android back button has somewhere to go
-  history.replaceState({ screen: "picker" }, "");
+  // Clear any leftover hash on load
+  if (location.hash) history.replaceState(null, "", location.pathname);
 
   // 2. Load persisted state from localStorage (migrate old format if needed)
   migrateLocalStorage();
@@ -181,14 +181,17 @@ async function loadSeason(season) {
 }
 
 // Switch between season picker and main app screens
-function showScreen(screen, pushHistory = true) {
+function showScreen(screen) {
   if (screen === "picker") {
     seasonPickerScreen.classList.remove("hidden");
     mainAppScreen.classList.add("hidden");
+    // Clear hash without adding a history entry
+    history.replaceState(null, "", location.pathname);
   } else {
     seasonPickerScreen.classList.add("hidden");
     mainAppScreen.classList.remove("hidden");
-    if (pushHistory) history.pushState({ screen: "app" }, "");
+    // Push a hash so Android back button has an entry to pop
+    location.hash = "season";
   }
 }
 
@@ -197,12 +200,12 @@ function goBackToPicker() {
   hideAutoplayCountdown();
   mainVideo.pause();
   activeSeason = null;
-  renderSeasonPicker(); // calls showScreen("picker") — no history push
+  renderSeasonPicker();
 }
 
-// Android back button / browser back support
-window.addEventListener("popstate", () => {
-  if (!mainAppScreen.classList.contains("hidden")) {
+// Android back button — fires when hash changes back to empty
+window.addEventListener("hashchange", () => {
+  if (location.hash === "" && !mainAppScreen.classList.contains("hidden")) {
     goBackToPicker();
   }
 });
@@ -601,9 +604,14 @@ function setupEventListeners() {
     }
   });
 
-  // Back to seasons button — triggers history.back() so popstate handles it consistently
+  // Back to seasons button
   backToSeasonsBtn.addEventListener("click", () => {
-    history.back();
+    // If hash is set, go back (triggers hashchange → goBackToPicker)
+    if (location.hash === "#season") {
+      history.back();
+    } else {
+      goBackToPicker();
+    }
   });
 
   // Autoplay toggle button
