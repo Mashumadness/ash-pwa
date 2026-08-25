@@ -27,6 +27,7 @@ const filterSeenBtn = document.getElementById("filter-seen");
 const videoPlaceholder = document.getElementById("video-placeholder");
 const mainVideo = document.getElementById("main-video");
 const videoSource = document.getElementById("video-source");
+const videoWrapper = mainVideo.closest(".video-wrapper");
 
 const episodeDetails = document.getElementById("episode-details");
 const detailNumber = document.getElementById("detail-number");
@@ -501,8 +502,33 @@ function updateDetailActionButton() {
   }
 }
 
+// Fullscreen handler — redirect video fullscreen to wrapper so overlay stays visible
+function setupFullscreenHandling() {
+  const requestWrapperFullscreen = () => {
+    if (videoWrapper.requestFullscreen) return videoWrapper.requestFullscreen();
+    if (videoWrapper.webkitRequestFullscreen) return videoWrapper.webkitRequestFullscreen();
+  };
+
+  const onFullscreenChange = () => {
+    const fullscreenEl = document.fullscreenElement || document.webkitFullscreenElement;
+    // If the video itself went fullscreen (native controls), re-request on the wrapper
+    if (fullscreenEl === mainVideo) {
+      const exitFS = document.exitFullscreen
+        ? document.exitFullscreen.bind(document)
+        : document.webkitExitFullscreen.bind(document);
+      exitFS().then(requestWrapperFullscreen).catch(() => {});
+    }
+  };
+
+  document.addEventListener("fullscreenchange", onFullscreenChange);
+  document.addEventListener("webkitfullscreenchange", onFullscreenChange);
+}
+
 // Setup Event Listeners
 function setupEventListeners() {
+  // Fullscreen interception
+  setupFullscreenHandling();
+
   // Search inputs
   searchInput.addEventListener("input", (e) => {
     searchQuery = e.target.value;

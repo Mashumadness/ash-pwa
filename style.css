@@ -635,6 +635,31 @@ html, body {
   position: relative;
 }
 
+/* When the wrapper itself is fullscreen, fill the screen and keep overlay visible */
+.video-wrapper:-webkit-full-screen,
+.video-wrapper:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-wrapper:-webkit-full-screen #main-video,
+.video-wrapper:fullscreen #main-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.video-wrapper:-webkit-full-screen .autoplay-overlay,
+.video-wrapper:fullscreen .autoplay-overlay {
+  position: absolute;
+  z-index: 99999;
+}
+
 #main-video {
   width: 100%;
   height: 100%;
