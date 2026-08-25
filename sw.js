@@ -1,4 +1,4 @@
-const CACHE_NAME = "pokemon-ash-pwa-v3";
+const CACHE_NAME = "pokemon-ash-pwa-v4";
 const ASSETS = [
   "./",
   "./index.html",
@@ -6,6 +6,10 @@ const ASSETS = [
   "./app.js",
   "./seasons.json",
   "./season1.json",
+  "./season2.json",
+  "./season3.json",
+  "./season4.json",
+  "./season5.json",
   "./season6.json",
   "./season7.json",
   "./manifest.webmanifest",

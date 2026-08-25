@@ -9,6 +9,42 @@
     "episode_count": 82
   },
   {
+    "number": 2,
+    "title": "Las aventuras en las Islas Naranja",
+    "subtitle": "La serie de Ash — Temporada 2",
+    "logo": "https://pkproject.net/anime/logo/1/season2_logo8.webp",
+    "logo_png": "https://pkproject.net/anime/logo/1/season2_logo8.png",
+    "data": "./season2.json",
+    "episode_count": 35
+  },
+  {
+    "number": 3,
+    "title": "El desafío Johto",
+    "subtitle": "La serie de Ash — Temporada 3",
+    "logo": "https://pkproject.net/anime/logo/1/season3_logo8.webp",
+    "logo_png": "https://pkproject.net/anime/logo/1/season3_logo8.png",
+    "data": "./season3.json",
+    "episode_count": 41
+  },
+  {
+    "number": 4,
+    "title": "Liga Johto",
+    "subtitle": "La serie de Ash — Temporada 4",
+    "logo": "https://pkproject.net/anime/logo/1/season4_logo8.webp",
+    "logo_png": "https://pkproject.net/anime/logo/1/season4_logo8.png",
+    "data": "./season4.json",
+    "episode_count": 52
+  },
+  {
+    "number": 5,
+    "title": "Campeones de Johto",
+    "subtitle": "La serie de Ash — Temporada 5",
+    "logo": "https://pkproject.net/anime/logo/1/season5_logo8.webp",
+    "logo_png": "https://pkproject.net/anime/logo/1/season5_logo8.png",
+    "data": "./season5.json",
+    "episode_count": 65
+  },
+  {
     "number": 6,
     "title": "Pokémon: Avanzado",
     "subtitle": "La serie de Ash — Temporada 6",
