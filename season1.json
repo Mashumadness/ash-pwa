@@ -1,0 +1,658 @@
+[
+  {
+    "number": 1,
+    "title": "Pokémon, ¡Yo te elijo!",
+    "description": "¡Ash Ketchum, un niño de diez años de Pueblo Paleta, finalmente tiene la edad para recibir a su primer Pokémon! Sin embargo, se queda dormido y el único Pokémon restante en el Laboratorio del Profesor Oak es un terco Pikachu.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0001.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e01.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-1"
+  },
+  {
+    "number": 2,
+    "title": "¡Emergencia Pokémon!",
+    "description": "Ash corre hacia Ciudad Viridian con su herido Pikachu, ahí se encuentra con Jessie, James, y Meowth del Equipo Rocket, así como con Misty, quien está molesta porque Ash descompuso su bicicleta.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0002.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e02.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-2"
+  },
+  {
+    "number": 3,
+    "title": "¡Ash captura un Pokémon!",
+    "description": "¡Ash descubre y atrapa a su primer Pokémon! Aunque está emocionada, Misty siente repugnancia por su nuevo amigo Pokémon tipo Insecto.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0003.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e03.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-3"
+  },
+  {
+    "number": 4,
+    "title": "¡El desafío del Samurai!",
+    "description": "¡Un furioso enjambre de Beedrill ataca a Ash y a Samurái a la mitad de un duelo de Metapod! Ash escapa, dejando atrás a su Metapod, quien está molesto con él por abandonarlo.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0004.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e04.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-4"
+  },
+  {
+    "number": 5,
+    "title": "¡Batalla en ciudad Plateada!",
+    "description": "Ash desafía al Líder de Gimnasio de Ciudad Plateada, Brock, pero ni siquiera Pikachu tiene oportunidad contra los Pokémon tipo Roca de Brock. Con la ayuda del misterioso Flint, Ash entrenará duro antes de la revancha.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0005.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e05.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-5"
+  },
+  {
+    "number": 6,
+    "title": "¡Clefairy y la Roca Lunar!",
+    "description": "Un científico guía a Ash y a sus a amigos a las profundidades de Mr. Moon para encontrar la famosa Piedra Lunar, la cual se dice tiene el poder de incrementar el poder de los Pokémon.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0006.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e06.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-6"
+  },
+  {
+    "number": 7,
+    "title": "¡Las Flores Acuáticas de Ciudad Celeste!",
+    "description": "Ash busca la Medalla Cascada en Ciudad Celeste, pero por alguna razón, Misty no quiere acompañarlo.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0007.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e07.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-7"
+  },
+  {
+    "number": 8,
+    "title": "¡El Camino a la Liga Pokémon!",
+    "description": "Luego de ganar su segunda medalla, Ash parte triunfal hacia Ciudad Carmín. En el camino escucha acerca de AJ, un Entrenador a punto de conseguir 100 victorias seguidas. ¡Lleno de confianza, Ash reta a este temible Entrenador!",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0008.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e08.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-8"
+  },
+  {
+    "number": 9,
+    "title": "¡La Escuela de los Golpes Duros!",
+    "description": "Ash conoce a algunos estudiantes, quienes molestan a su compañero Joe. Joe insiste en que se necesita un trato duro para que él sea lo suficientemente fuerte para graduarse. Ash no está de acuerdo.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0009.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e09.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-9"
+  },
+  {
+    "number": 10,
+    "title": "¡Bulbasaur y la aldea secreta!",
+    "description": "Completamente perdidos, nuestros héroes llegan a un pueblo que no aparece en su mapa. Este tranquilo lugar está habitado por Pokémon que han sido heridos en batalla o abandonados por sus Entrenadores.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0010.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e10.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-10"
+  },
+  {
+    "number": 11,
+    "title": "¡Charmander, el Pokémon Abandonado!",
+    "description": "Conforme nuestros héroes se acercan a Ciudad Carmín, se encuentran con un Charmander herido, sentado sobre una piedra en el paso de una montaña. Más tarde descubren porqué está esperando ahí.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0011.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e11.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-11"
+  },
+  {
+    "number": 12,
+    "title": "¡El Escuadrón Squirtle!",
+    "description": "Ash y sus amigos caminan por un sendero y caen en un hoyo cavado por un grupo de traviesos Squirtle. ¿Por qué el Escuadrón Squirtle es una amenaza a la gente del lugar?",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0012.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e12.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-12"
+  },
+  {
+    "number": 13,
+    "title": "¡El Misterio del Faro!",
+    "description": "El grupo conoce a Bill, un investigador Pokémon que está esperando en su faro la llegada de un Pokémon único en su tipo, nunca antes visto por los humanos. ¿Acaso existirá un Pokémon así?",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0013.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e13.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-13"
+  },
+  {
+    "number": 14,
+    "title": "¡Duelo Eléctrico!",
+    "description": "Ansioso por ganar una medalla, Ash reta al Lt. Surge. Pikachu entra sin ganas a la batalla, donde descubre que su oponente es un Raichu, un feroz Pokémon con un tremendo poder eléctrico, ¡y la forma evolucionada de Pikachu!",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0014.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e14.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-14"
+  },
+  {
+    "number": 15,
+    "title": "¡Duelo a bordo del Santa Anna!",
+    "description": "Ash y sus amigos abordan el crucero St. Anne gracias a los boletos proporcionados por Jessie y James disfrazados. Su más reciente plan es atraer Entrenadores Pokémon hacia el barco para robar sus Pokémon.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0015.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e15.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-15"
+  },
+  {
+    "number": 16,
+    "title": "¡Naufragio Pokémon!",
+    "description": "Una tormenta obliga a todos excepto al Equipo Rocket y a nuestros héroes a abandonar el zozobrante St. Anne. Ash, Brock y Misty deben hacer equipo con sus antiguos enemigos para sobrevivir esta bochornosa situación.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0016.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e16.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-16"
+  },
+  {
+    "number": 17,
+    "title": "¡La Isla de los Pokémon Gigantes!",
+    "description": "Mientras nuestros héroes y el Equipo Rocket sobreviven contra toda posibilidad al hundimiento del St. Anne, se ven arrastrados a otra peligrosa situación cuando son atacados por el Pokémon Gyarados.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0017.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e17.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-17"
+  },
+  {
+    "number": 18,
+    "title": "Beauty and the Beach",
+    "description": "Fue censurado en Hispanoamérica, así como en otros países. El motivo fue que James utiliza senos postizos con el fin de hacerse pasar por una chica y ganar un concurso de belleza.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0018.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e18.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-18"
+  },
+  {
+    "number": 19,
+    "title": "¡Tentacool y Tentacruel!",
+    "description": "Cuando unos Tentacool interfieren con la construcción de un hotel, una mujer ofrece una recompensa a quien pueda repelerlos. Sin embargo, nuestros héroes deben entrar en acción cuando la treta del Equipo Rocket falla.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0019.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e19.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-19"
+  },
+  {
+    "number": 20,
+    "title": "¡El Fantasma del Pico de la Doncella!",
+    "description": "Nuestros héroes llegan a un pequeño pueblo porteño donde se celebra un festival de verano. Para recuperarse de su duro viaje, Ash y sus amigos deciden relajarse y disfrutar las festividades.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0020.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e20.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-20"
+  },
+  {
+    "number": 21,
+    "title": "Adiós Butterfree",
+    "description": "Cuando los chicos ven a un grupo de Butterfree volando sobre el océano, Ash decide liberar a su propio Butterfree. Luego de ser rechazado una vez, ¿podrá el Butterfree de Ash ganar el corazón de su rosado amor?",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0021.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e21.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-21"
+  },
+  {
+    "number": 22,
+    "title": "¡Abra y el duelo psíquico!",
+    "description": "Los chicos finalmente llegan a Ciudad Azafrán, donde una jovencita está al mando de un Gimnasio Pokémon con sus poderes psíquicos. ¡Si Ash derrota a la Líder de Gimnasio Sabrina, ganará su cuarta Medalla de Gimnasio!",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0022.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e22.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-22"
+  },
+  {
+    "number": 23,
+    "title": "¡La torre del terror!",
+    "description": "Tras su derrota ante Sabrina, Ash debe atrapar a un Pokémon tipo Fantasma para acabar con el tipo Psíquico de la Líder del Gimnasio Azafrán. Se dirige hacia la Torre Pokémon en Pueblo Lavanda, donde se dice que habitan.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0023.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e23.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-23"
+  },
+  {
+    "number": 24,
+    "title": "¡Haunter contra Kadabra!",
+    "description": "Luego de dejar la Torre Pokémon acompañados de Haunter, Ash regresa a Ciudad Azafrán con una sola meta en mente: ¡ganar una Medalla de Gimnasio de la poderosa Líder de Gimnasio tipo Psíquico, Sabrina!",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0024.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e24.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-24"
+  },
+  {
+    "number": 25,
+    "title": "¡Primeape se vuelve loco!",
+    "description": "Cuando Ash intenta atrapar a un Mankey salvaje, este pierde el control y usa Golpe contra todo el grupo, ¡incluso roba la gorra de Ash! ¿Encontrará Ash la forma de apaciguar a este belicoso Pokémon?",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0025.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e25.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-25"
+  },
+  {
+    "number": 26,
+    "title": "¡Aromas Pokémon!",
+    "description": "Tras insultar el perfume de la Líder de Gimnasio Erika en una tienda departamental, Ash debe ir a extremos increíbles para poder poner un pie en el Gimnasio Celadon, ¡sin mencionar el considerarlo digno de retarla!",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0026.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e26.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-26"
+  },
+  {
+    "number": 27,
+    "title": "¡La siesta de Hypno!",
+    "description": "La Oficial Jenny revela que una ola de sueño afecta al área desde hace varios días. Nuestros héroes sospechan que tiene que ver con la desaparición de varios niños y el porqué los Pokémon no mejoran en el Centro Pokémon.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0027.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e27.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-27"
+  },
+  {
+    "number": 28,
+    "title": "¡Moda Pokémon!",
+    "description": "Ante la insistente petición de Brock, nuestros héroes hacen una parada en un lugar bien conocido por los criadores Pokémon por sus salones de belleza Pokémon.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0028.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e28.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-28"
+  },
+  {
+    "number": 29,
+    "title": "¡El Pokémon golpeador!",
+    "description": "A las afueras de Ciudad Fucsia, nuestros héroes se encuentran con Hitmonchan, un Pokémon tipo Pelea. Sin pensarlo, Ash lo enfrenta, pero Pikachu y él son derrotados. ¿Quién es el misterioso Entrenador de este Hitmonchan?",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0029.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e29.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-29"
+  },
+  {
+    "number": 30,
+    "title": "¡Hurra por Magnemite!",
+    "description": "Cuando un apagón sumerge a Ciudad Grisácea en la oscuridad, Ash y sus amigos van a investigar a la planta de energía cercana, donde encuentran a Magnemite y un huésped de Grimer. ¿Serán responsables del apagón en la ciudad?",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0030.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e30.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-30"
+  },
+  {
+    "number": 31,
+    "title": "¡Saquen a esos Diglett!",
+    "description": "Ash, Brock, Misty y Pikachu se encuentran muy perdidos en las montañas. Mientras se apresuran por un camino irregular que no aparece en su mapa, ¡de repente oyen una gran explosión!",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0031.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e31.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-31"
+  },
+  {
+    "number": 32,
+    "title": "¡El duelo Pokémon ninja!",
+    "description": "¡En su camino hacia el siguiente reto de Batalla de Gimnasio parece que se han perdido. ¡Ash y sus amigos llegan a una enorme mansión que parece ser la guarida oculta de un ninja! ¿Acaso será el Gimnasio Fucsia?",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0032.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e32.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-32"
+  },
+  {
+    "number": 33,
+    "title": "¡La gran carrera!",
+    "description": "Luego de tomar el lugar de la herida Lara, ¿podrá Ash controlar a su feroz Ponyta y guiarlo para ganar la carrera anual?",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0033.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e33.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-33"
+  },
+  {
+    "number": 34,
+    "title": "¡El chico Kangaskhan!",
+    "description": "Nuestros héroes acompañan a la Oficial Jenny al interior del bosque en persecución de unos cazadores. Pronto descubren a un niño en medio de una manada de Kangaskhan. Su nombre es Tommy y nadie sabe el secreto de su infancia.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0034.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e34.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-34"
+  },
+  {
+    "number": 35,
+    "title": "ミニリュウのでんせつ",
+    "description": "Este episodio no se emitió fuera de Japón. El motivo fue el uso excesivo de armas tanto por parte del guardia de la Zona Safari como del Equipo Rocket.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0035.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e35.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-35"
+  },
+  {
+    "number": 36,
+    "title": "¡La banda del puente!",
+    "description": "Luego de encontrar un muy largo puente que sólo puede cruzarse en bicicleta, un trabajo repartiendo medicina es el boleto perfecto para que Ash y sus amigos lleguen a Pueblo Soleado.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0036.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e36.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-36"
+  },
+  {
+    "number": 37,
+    "title": "¡La misteriosa mansión de Ditto!",
+    "description": "Atrapados en un repentino chubasco, nuestros héroes rápidamente buscan refugio. Tras arrastrar a una renuente Misty, Ash y Brock entran a una cabaña, ¡y de inmediato tienen la impresión de que no están solos!",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0037.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e37.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-37"
+  },
+  {
+    "number": 38,
+    "title": "でんのうせんしポリゴン",
+    "description": "Este episodio no fue emitido fuera de Japón. El motivo fue una oleada de ataques epilépticos que causó este episodio en Japón.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0038.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e38.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-38"
+  },
+  {
+    "number": 39,
+    "title": "Adiós Pikachu",
+    "description": "Los chicos descubren a un grupo de Pikachu salvajes, y aunque al principio parecen asustados por el intruso, el grupo eventualmente confía en el Pikachu de Ash. ¿Qué sentirá Pikachu al ver a otros como él en la naturaleza?",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0039.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e39.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-39"
+  },
+  {
+    "number": 40,
+    "title": "¡Los belicosos hermanos Eevee!",
+    "description": "Ash y sus amigos encuentran una enorme casa con una fiesta de jardín en marcha a la que asisten los Entrenadores de los Pokémon que evolucionan usando Rocas Evolutivas. ¿Estará aquí el Entrenador del Eevee abandonado?",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0040.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e40.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-40"
+  },
+  {
+    "number": 41,
+    "title": "¡Despierta Snorlax!",
+    "description": "Nuestros hambrientos héroes llegan a una pequeña aldea. A cambio de una comida, Ash, Misty y Brock aceptan investigar qué está causando que se seque el río, lo cual destruye la cosecha de la aldea.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0041.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e41.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-41"
+  },
+  {
+    "number": 42,
+    "title": "¡Duelo en Ciudad Obscura!",
+    "description": "Acompañamos a nuestros héroes a las afueras de Ciudad Oscura, la cual parece estar desierta. No hay nadie en las calles, incluso a mediodía. ¿Qué volvió a este un lugar tan desolado?",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0042.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e42.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-42"
+  },
+  {
+    "number": 43,
+    "title": "¡La marcha del escuadrón Exeggutor!",
+    "description": "Nuestros héroes no han tenido tiempo ni para descansar ni para divertirse, pero ahora están de suerte, han llegado a una ciudad el mismo día en que se celebra una fiesta.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0043.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e43.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-43"
+  },
+  {
+    "number": 44,
+    "title": "¡El problema con Paras!",
+    "description": "Aún en persecución de nuestros héroes, el Equipo Rocket está listo para otro intento de atrapar a Pikachu, ¡hasta que el desastre se presenta! Pronto se vuelve evidente que Meowth está enfermándose.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0044.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e44.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-44"
+  },
+  {
+    "number": 45,
+    "title": "¡La canción de Jigglypuff!",
+    "description": "Haciendo a un lado su idea de atrapar a Jigglypuff por ahora, Misty promete hallar una solución para la situación de canto de este Pokémon.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0045.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e45.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-45"
+  },
+  {
+    "number": 46,
+    "title": "¡El ataque de los Pokémon prehistóricos!",
+    "description": "Según el rival de Ash, Gary, se han descubierto fósiles de Pokémon extintos en el área, iniciando una gran fiebre de fósiles en el cañón. ¡Ash decide unirse a las excavaciones para tratar de derrotar a Gary!",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0046.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e46.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-46"
+  },
+  {
+    "number": 47,
+    "title": "¡Una operación Chansey!",
+    "description": "Ash duerme pacíficamente hasta que es despertado por Brock y Misty con alarmantes noticias: ¡Algo le pasa a la voz de Pikachu! Preocupado, Ash corre con Pikachu en busca del Centro Pokémon más cercano.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0047.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e47.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-47"
+  },
+  {
+    "number": 48,
+    "title": "¡Santo matrimonio!",
+    "description": "Mientras nuestros héroes caminan por la campiña, notan un anuncio de \"Personas desaparecidas\" con un rostro innegablemente conocido: ¡es exactamente igual que James del Equipo Rocket! ¿De verdad es él el del anuncio?",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0048.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e48.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-48"
+  },
+  {
+    "number": 49,
+    "title": "¡Tan cerca y aún tan Farfetch'd!",
+    "description": "Nuestros héroes discuten el rumor de que un raro Farfetch’d salvaje ha sido visto en el área. Tanto Ash como Misty prometen atraparlo, ¡y pronto tienen su oportunidad cuando el Pokémon aparece!",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0049.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e49.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-49"
+  },
+  {
+    "number": 50,
+    "title": "¿Quién se queda con Togepi?",
+    "description": "Al dejar el Centro Pokémon, nuestros héroes discuten lo que creen que saldrá del huevo Pokémon que Ash descubrió. Cerca, el Equipo Rocket comienza a empollar otro atrevido plan para hacerlo suyo.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0050.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e50.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-50"
+  },
+  {
+    "number": 51,
+    "title": "¡El jardín misterioso de Bulbasaur!",
+    "description": "En una batalla con el Rhyhorn de otro Entrenador, el bulbo en la espalda de Bulbasaur empieza a brillar. Ash lo lleva al Centro Pokémon del lugar. Pronto descubren que Bulbasaur no está enfermo, ¡se prepara para evolucionar!",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0051.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e51.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-51"
+  },
+  {
+    "number": 52,
+    "title": "¡Princesa contra princesa!",
+    "description": "¡Misty y Jessie compiten para ser la Reina del Festival de la Princesa! Ash y Brock le prestan a Misty sus Pokémon para la batalla, y Jessie es derrotada a pesar de su Pokémon sorpresa.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0052.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e52.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-52"
+  },
+  {
+    "number": 53,
+    "title": "¡El héroe perfecto!",
+    "description": "Es Día del Niño, y Ash y sus amigos ayudan a unos niños de una escuela a celebrarlo. El Equipo Rocket arruina la diversión llevándose a un niño en vez de a Pikachu. En un asombroso giro de eventos, Meowth se vuelve bueno… ¿o no?",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0053.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e53.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-53"
+  },
+  {
+    "number": 54,
+    "title": "¡El caso de la policía canina!",
+    "description": "En su camino hacia la Isla Cinnabar, nuestros héroes se unen con la Oficial Jenny y con el Growlithe de la fuerza policíaca en un entrenamiento especial, esperando mejorar las habilidades de batalla de Pikachu.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0054.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e54.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-54"
+  },
+  {
+    "number": 55,
+    "title": "¡Paparazzi Pokémon!",
+    "description": "En un breve descanso para almorzar, Ash y sus amigos conocen a Todd Snap, un fotógrafo Pokémon que intenta conseguir una toma perfecta de Pikachu.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0055.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e55.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-55"
+  },
+  {
+    "number": 56,
+    "title": "¡La prueba máxima!",
+    "description": "Al darse cuenta de que hace tiempo que no gana ninguna Medalla de Gimnasio, Ash se inscribe al Examen de Admisión de la Liga Pokémon, ¡una gran oportunidad para demostrar que puede convertirse en un Maestro Pokémon!",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0056.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e56.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-56"
+  },
+  {
+    "number": 57,
+    "title": "¡El secreto del centro de entrenamiento!",
+    "description": "Ash y los chicos deciden visitar un centro de crianza que vieron en un comercial. Sin embargo, el centro encubre un plan diabólico de los miembros del Equipo Rocket, Butch y Cassidy, ¡viejos rivales de Jessie y James!",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0057.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e57.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-57"
+  },
+  {
+    "number": 58,
+    "title": "Descíframe esto",
+    "description": "Nuestros héroes viajan a la Isla Cinnabar, donde Ash busca ganar la Medalla Volcán. Un extraño les dice acertijos para llegar al Gimnasio, ¡donde Ash y Pikachu tienen una feroz batalla con un Pokémon que nunca habían visto!",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0058.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e58.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-58"
+  },
+  {
+    "number": 59,
+    "title": "¡Pánico volcánico!",
+    "description": "Ash finalmente localiza el Gimnasio, ¡suspendido sobre una piscina de lava fundida! Sólo un fuerte Pokémon tipo Fuego puede ayudarlo en esta batalla por la Medalla Volcán, así que Ash debe confiar en su malcriado Charizard.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0059.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e59.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-59"
+  },
+  {
+    "number": 60,
+    "title": "¡El problema con Blastoise!",
+    "description": "Mientras Ash y los chicos se apresuran a abordar el último transbordador hacia la Isla Cinnabar, son desviados por un grupo de Squirtle, Wartortle y Blastoise que necesitan su ayuda.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0060.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e60.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-60"
+  },
+  {
+    "number": 61,
+    "title": "¡Misty la sirena!",
+    "description": "El Horsea de Misty necesita ejercicio desesperadamente, y los chicos deciden llevarlo al Gimnasio de sus hermanas en Ciudad Celeste. Ahí, ella descubre que sus hermanas están planeando un emocionante ballet bajo el agua.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0061.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e61.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-61"
+  },
+  {
+    "number": 62,
+    "title": "¡Una historia de Clefairy!",
+    "description": "Ash, Brock y Misty se desvían camino a Ciudad Viridian cuando todas sus pertenencias desaparecen. Mientras buscan sus cosas perdidas, se ven envueltos en un encuentro cercano que de verdad está fuera de este mundo.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0062.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e62.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-62"
+  },
+  {
+    "number": 63,
+    "title": "¡La batalla por la medalla!",
+    "description": "Nuestros héroes llegan a Ciudad Viridian, donde Ash espera ganar la Medalla Tierra. Llegan al Gimnasio justo a tiempo para ver a su rival, Gary, derrotado por un Pokémon desconocido, ¡y Gary insiste en que es maligno!",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0063.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e63.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-63"
+  },
+  {
+    "number": 64,
+    "title": "¡La hora de Mr. Mime!",
+    "description": "En su camino de vuelta a Pueblo Paleta, nuestros héroes encuentran a un Mr. Mime fugitivo. Ash se disfraza como otro Mr. Mime para poder acercarse. Cuando el Equipo Rocket ataca... ¿atraparán al Mr. Mime correcto?",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0064.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e64.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-64"
+  },
+  {
+    "number": 65,
+    "title": "¡Una Navidad con Jynx!",
+    "description": "Nuestros héroes encuentran una desviación en el camino y deciden escalar una escarpada y peligrosa montaña. Pikachu se pierde, y todos deben trabajar juntos para encontrarlo, mantener el calor y enfrentar una tormenta.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0065.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e65.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-65"
+  },
+  {
+    "number": 67,
+    "title": "¡Duelo en el Poké-Corral!",
+    "description": "Al visitar al Profesor Oak, Ash se encuentra con Gary, y hablan de la próxima Liga Pokémon. El Profesor Oak dice que deberían aprender uno del otro en vez de competir, ¡y su trabajo rinde frutos cuando el Equipo Rocket ataca!",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0067.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e67.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-67"
+  },
+  {
+    "number": 68,
+    "title": "¡La solución de la evolución!",
+    "description": "Ash se une a su mamá en sus vacaciones en la Isla Espuma. Ahí, busca al programador del Pokédex para aprender de la inusual Evolución de SlowPoké. ¡El misterio es revelado por la incompetencia del Equipo Rocket!",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0068.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e68.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-68"
+  },
+  {
+    "number": 69,
+    "title": "¡La Pi-Kahuna!",
+    "description": "Cuando Ash fracasa al intentar surfear, Victor lo rescata y le cuenta acerca de Humungadunga, una ola gigante que aparece cada 20 años. ¿Podrán Ash y Pikachu darle a Victor la confianza necesaria para montar la ola gigante?",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0069.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e69.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-69"
+  },
+  {
+    "number": 70,
+    "title": "¡Hagan espacio para Gloom!",
+    "description": "De vuelta a Pueblo Paleta, Ash y sus amigos conocen a Florinda de la guardería. Su Gloom no evoluciona y cree no estarlo entrenando bien. Cuando el Equipo Rocket ataca, todos ven lo fuerte que puede volverse un Pokémon.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0070.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e70.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-70"
+  },
+  {
+    "number": 71,
+    "title": "Lúces, cámara ¡Cuackción!",
+    "description": "¡Un famoso director llega al pueblo, y todos quieren ser la estrella! Como él sólo quiere Pokémon en su película, Ash, Brock, Misty y el Equipo Rocket luchan para asegurarse que su Pokémon la protagonice junto a Wigglytuff.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0071.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e71.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-71"
+  },
+  {
+    "number": 72,
+    "title": "¡Ve al oeste Meowth!",
+    "description": "Cuando los chicos asisten al estreno de “Pokémon enamorado”, Meowth recuerda su doloroso pasado. Comparte la historia de su vida ante el Equipo Rocket, incluyendo cómo aprendió a caminar y a hablar como humano.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0072.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e72.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-72"
+  },
+  {
+    "number": 73,
+    "title": "¡Dominando lo Onixperado!",
+    "description": "A sólo tres semanas de iniciar la Liga Pokémon, Ash, Brock y Misty se dirigen al Monte Hideaway a buscar a uno de Élite 4. Buscan consejos de entrenamiento Pokémon, ¡pero descubren una tierra de enormes Onix en su lugar!",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0073.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e73.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-73"
+  },
+  {
+    "number": 74,
+    "title": "¡El misterio de Pokémopolis!",
+    "description": "Mientras Ash y Brock entrenan para la Liga Pokémon, hallan un templo con fósiles Pokémon. Misty recuerda una ciudad oculta donde la gente construye templos para los Pokémon. ¿Será esta la antigua ciudad de Pokémopolis?",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0074.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e74.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-74"
+  },
+  {
+    "number": 75,
+    "title": "¡Malo hasta los huesos!",
+    "description": "Camino al torneo de la Liga Pokémon en la Meseta Añil,, los chicos conocen a otro Entrenador. Desafortunadamente, sus Medallas de Gimnasio son robadas, así que no puede competir... ¡a menos que se lleve las medallas de Ash!",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0075.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e75.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-75"
+  },
+  {
+    "number": 76,
+    "title": "¡Todos prendidos!",
+    "description": "La Liga Pokémon está a punto de empezar, con el encendido ceremonial de la antorcha, que lleva una llama del Pokémon Legendario Moltres. ¡Por supuesto, el Equipo Rocket trata de robarla!",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0076.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e76.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-76"
+  },
+  {
+    "number": 77,
+    "title": "La primera ronda... ¡Comienza!",
+    "description": "Es el primer día de la Liga Pokémon, y cuando Ash y sus amigos descubren que su primera batalla será en el Campo de Agua, están llenos de consejos.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0077.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e77.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-77"
+  },
+  {
+    "number": 78,
+    "title": "¡Fuego y hielo!",
+    "description": "Al continuar la Liga Pokémon, Ash lucha en el Campo de Roca, ¡y tiene un encuentro con el Equipo Rocket luego de que instalan un Centro Pokémon falso para atraer a los Entrenadores incautos!",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0078.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e78.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-78"
+  },
+  {
+    "number": 79,
+    "title": "¡Cuarta ronda, tiembla!",
+    "description": "¡Ash enfrenta a su más duro oponente hasta ahora en el Campo de Planta en la Liga Pokémon! ¿Están él y su Bulbasaur listos para enfrentar a su oponente y a su poderoso Scyther?",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0079.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e79.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-79"
+  },
+  {
+    "number": 80,
+    "title": "¡Amigos y héroes!",
+    "description": "Cuando Ash conoce a un Entrenador parecido llamado Richie en la Liga Pokémon, los dos chicos pronto se vuelven amigos cercanos, ¡al igual que sus dos Pikachu!",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0080.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e80.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-80"
+  },
+  {
+    "number": 81,
+    "title": "¡Amigos y enemigos por igual!",
+    "description": "¡En la quinta ronda de la Liga Pokémon, Ash y Richie se enfrentan uno al otro! ¿Sobrevivirá su amistad esta importante batalla?",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0081.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e81.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-81"
+  },
+  {
+    "number": 82,
+    "title": "¡Amigos hasta el fin!",
+    "description": "Ash, Misty y Brock están en las gradas vitoreando a Richie cuando la Liga Pokémon llega a su fin y marchan juntos en las ceremonias de clausura. ¡Es una experiencia que acompañará a Ash durante todo su viaje como Entrenador!",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0082.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e82.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-82"
+  },
+  {
+    "number": 83,
+    "title": "¡Fiesta de pánico en el pueblo Paleta!",
+    "description": "Ash y sus amigos regresan a Pueblo Paleta con una gran bienvenida, ¡sólo para ser enviados a otro viaje de inmediato! El Profesor Oak busca una misteriosa Pokébola, y le pide a Ash, Brock y Misty que la encuentren para él.",
+    "image": "https://pkproject.net/pokemon_anime/main/150/EP0083.webp",
+    "video_url": "https://pkproject.net/descargas/epis/serie-ash/t01/t01_e83.es-la.mp4",
+    "url": "https://pkproject.net/episodios/latino/serie-ash/temporada-1/episodio-83"
+  }
+]
