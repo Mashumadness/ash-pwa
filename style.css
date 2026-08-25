@@ -153,10 +153,62 @@ html, body {
 /* Search and Filters */
 .search-filters {
   padding: 15px 20px;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: none;
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+/* Autoplay toggle bar */
+.autoplay-toggle-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--bg-surface);
+}
+
+.autoplay-label {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.autoplay-switch {
+  position: relative;
+  width: 42px;
+  height: 24px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(255,255,255,0.2);
+  background-color: rgba(255,255,255,0.12);
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+  flex-shrink: 0;
+}
+
+.autoplay-switch.active {
+  background-color: var(--brand-red);
+  border-color: var(--brand-red);
+}
+
+.autoplay-switch-knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: transform 0.25s ease;
+  display: block;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+.autoplay-switch.active .autoplay-switch-knob {
+  transform: translateX(18px);
 }
 
 .search-box {
@@ -323,6 +375,23 @@ html, body {
   transform: scale(1);
 }
 
+/* Thin red playback progress bar at the base of the thumbnail */
+.ep-watch-progress-track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.ep-watch-progress-fill {
+  height: 100%;
+  width: 0%;
+  background-color: var(--brand-red);
+  transition: width 0.2s linear;
+}
+
 /* Episode Text Content */
 .ep-text-info {
   flex: 1;
@@ -420,6 +489,8 @@ html, body {
   aspect-ratio: 16 / 9;
   max-height: 65vh;
   box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
 .video-wrapper {
@@ -433,6 +504,108 @@ html, body {
   height: 100%;
   object-fit: contain;
   display: none; /* Displayed dynamically via JS */
+}
+
+/* Autoplay countdown overlay */
+.autoplay-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.6) 80%, transparent 100%);
+  padding: 20px 24px 24px;
+  /* animation only fires when .visible is added */
+}
+
+.autoplay-overlay.hidden {
+  display: none;
+}
+
+.autoplay-overlay.visible {
+  animation: fadeInUp 0.3s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.autoplay-overlay-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.autoplay-next-thumb {
+  width: 120px;
+  height: 68px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 2px solid rgba(255,255,255,0.2);
+  flex-shrink: 0;
+}
+
+.autoplay-overlay-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.autoplay-overlay-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.55);
+  font-weight: 600;
+}
+
+.autoplay-next-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.autoplay-countdown-track {
+  height: 3px;
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.autoplay-countdown-fill {
+  height: 100%;
+  width: 100%;
+  background-color: var(--brand-red);
+  transition: width 0.25s linear;
+}
+
+.autoplay-countdown-text {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.6);
+}
+
+.autoplay-cancel-btn {
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.autoplay-cancel-btn:hover {
+  background: rgba(255,255,255,0.22);
 }
 
 /* Player Placeholder state */

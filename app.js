@@ -6,9 +6,13 @@
 // Application State
 let episodes = [];
 let seenEpisodes = new Set();
+let episodeProgress = {}; // { [episodeNumber]: percentage (0-100) }
 let activeEpisode = null;
 let currentFilter = "all"; // "all" | "pending" | "seen"
 let searchQuery = "";
+let lastProgressSaveTime = 0;
+let autoplayEnabled = false;
+let autoplayCancelled = false; // true when user dismisses the countdown for the current episode
 
 // DOM Elements
 const episodeListEl = document.getElementById("episode-list");
@@ -32,13 +36,23 @@ const detailDescription = document.getElementById("detail-description");
 const progressText = document.getElementById("progress-text");
 const progressBarFill = document.getElementById("progress-bar-fill");
 
+const autoplayToggleBtn = document.getElementById("autoplay-toggle");
+const autoplayOverlay = document.getElementById("autoplay-overlay");
+const autoplayNextThumb = document.getElementById("autoplay-next-thumb");
+const autoplayNextTitle = document.getElementById("autoplay-next-title");
+const autoplayCountdownFill = document.getElementById("autoplay-countdown-fill");
+const autoplayCountdownText = document.getElementById("autoplay-countdown-text");
+const autoplayCancelBtn = document.getElementById("autoplay-cancel-btn");
+
 // Initialize Application
 async function init() {
   // 1. Register Service Worker for offline capability
   registerServiceWorker();
 
-  // 2. Load Seen Episodes from LocalStorage
+  // 2. Load Seen Episodes, Playback Progress and Autoplay state from LocalStorage
   loadSeenEpisodes();
+  loadEpisodeProgress();
+  loadAutoplayState();
 
   // 3. Load Episodes Data
   try {
@@ -90,6 +104,107 @@ function saveSeenEpisodes() {
   localStorage.setItem("pokemon_seen_episodes", JSON.stringify(arr));
 }
 
+// Load Playback Progress (percentage watched) from localStorage
+function loadEpisodeProgress() {
+  const stored = localStorage.getItem("pokemon_episode_progress");
+  if (stored) {
+    try {
+      episodeProgress = JSON.parse(stored);
+    } catch (e) {
+      console.error("Error parsing localStorage episode progress:", e);
+      episodeProgress = {};
+    }
+  }
+}
+
+// Save Playback Progress to localStorage
+function saveEpisodeProgress() {
+  localStorage.setItem("pokemon_episode_progress", JSON.stringify(episodeProgress));
+}
+
+// Load and apply autoplay state from localStorage
+function loadAutoplayState() {
+  autoplayEnabled = localStorage.getItem("pokemon_autoplay") === "true";
+  applyAutoplayToggleUI();
+}
+
+// Save autoplay state to localStorage
+function saveAutoplayState() {
+  localStorage.setItem("pokemon_autoplay", autoplayEnabled ? "true" : "false");
+}
+
+// Reflect autoplay state in the toggle button UI
+function applyAutoplayToggleUI() {
+  if (autoplayEnabled) {
+    autoplayToggleBtn.classList.add("active");
+    autoplayToggleBtn.setAttribute("aria-checked", "true");
+  } else {
+    autoplayToggleBtn.classList.remove("active");
+    autoplayToggleBtn.setAttribute("aria-checked", "false");
+  }
+}
+
+// Get the next episode to play, respecting current filter and search
+function getNextEpisode() {
+  if (!activeEpisode) return null;
+
+  const filtered = episodes.filter((ep) => {
+    const matchesSearch =
+      ep.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      ep.number.toString().includes(searchQuery) ||
+      ep.description.toLowerCase().includes(searchQuery.toLowerCase());
+    if (!matchesSearch) return false;
+    if (currentFilter === "seen") return seenEpisodes.has(ep.number);
+    if (currentFilter === "pending") return !seenEpisodes.has(ep.number);
+    return true;
+  });
+
+  const currentIndex = filtered.findIndex((ep) => ep.number === activeEpisode.number);
+  if (currentIndex === -1 || currentIndex === filtered.length - 1) return null;
+  return filtered[currentIndex + 1];
+}
+
+// Show (or update) the autoplay countdown overlay — driven by timeupdate, no interval
+function showAutoplayCountdown(nextEpisode, secondsLeft) {
+  const isAlreadyVisible = !autoplayOverlay.classList.contains("hidden");
+
+  if (!isAlreadyVisible) {
+    // First time showing: populate content and animate in
+    autoplayNextThumb.src = nextEpisode.image || "icons/icon-192.png";
+    autoplayNextThumb.alt = nextEpisode.title;
+    autoplayNextTitle.textContent = `Ep. ${nextEpisode.number} — ${nextEpisode.title}`;
+
+    autoplayOverlay.classList.remove("visible");
+    autoplayOverlay.classList.remove("hidden");
+    void autoplayOverlay.offsetWidth; // force reflow for animation restart
+    autoplayOverlay.classList.add("visible");
+  }
+
+  // Update bar width and text on every tick (0.25s CSS transition smooths it)
+  const barWidth = Math.max(0, Math.min(100, (secondsLeft / 5) * 100));
+  autoplayCountdownFill.style.width = `${barWidth}%`;
+  autoplayCountdownText.textContent = secondsLeft > 0
+    ? `Siguiente en ${Math.ceil(secondsLeft)}...`
+    : "Iniciando...";
+}
+
+// Hide and reset the autoplay countdown overlay
+function hideAutoplayCountdown() {
+  autoplayOverlay.classList.add("hidden");
+  autoplayOverlay.classList.remove("visible");
+  autoplayCountdownFill.style.width = "100%";
+}
+
+// Update the red progress bar under an episode's thumbnail
+function updateEpisodeProgressBar(number, percentage) {
+  const el = document.querySelector(`.episode-item[data-number="${number}"]`);
+  if (!el) return;
+  const fillEl = el.querySelector(".ep-watch-progress-fill");
+  if (fillEl) {
+    fillEl.style.width = `${percentage}%`;
+  }
+}
+
 // Calculate and Update Progress Bar
 function updateProgress() {
   const total = episodes.length;
@@ -137,12 +252,16 @@ function renderEpisodes() {
 
     // Use placeholder image if thumb is missing or invalid
     const imgUrl = ep.image || "icons/icon-192.png";
+    const watchedPercentage = seenEpisodes.has(ep.number) ? 100 : (episodeProgress[ep.number] || 0);
 
     li.innerHTML = `
       <div class="ep-thumb-wrapper">
         <img class="ep-thumb" src="${imgUrl}" alt="${ep.title}" loading="lazy">
         <span class="ep-number-badge">#${ep.number}</span>
         <div class="ep-seen-badge">✓</div>
+        <div class="ep-watch-progress-track">
+          <div class="ep-watch-progress-fill" style="width: ${watchedPercentage}%;"></div>
+        </div>
       </div>
       <div class="ep-text-info">
         <span class="ep-title">${ep.title}</span>
@@ -166,6 +285,9 @@ function renderEpisodes() {
 
 // Select and load episode to the video player
 function selectEpisode(ep) {
+  // Reset cancelled flag and hide any overlay when switching episodes
+  autoplayCancelled = false;
+  hideAutoplayCountdown();
   activeEpisode = ep;
 
   // Highlight in list
@@ -210,6 +332,9 @@ function toggleEpisodeSeen(number) {
     seenEpisodes.delete(number);
   } else {
     seenEpisodes.add(number);
+    // Mark playback progress as fully watched
+    episodeProgress[number] = 100;
+    saveEpisodeProgress();
   }
 
   saveSeenEpisodes();
@@ -220,6 +345,7 @@ function toggleEpisodeSeen(number) {
   if (el) {
     if (seenEpisodes.has(number)) {
       el.classList.add("seen");
+      updateEpisodeProgressBar(number, 100);
     } else {
       el.classList.remove("seen");
     }
@@ -281,12 +407,80 @@ function setupEventListeners() {
     }
   });
 
-  // Auto-mark as seen when video ends (cool feature!)
+  // Track playback progress to fill the red progress bar and detect completion
+  mainVideo.addEventListener("timeupdate", handleVideoTimeUpdate);
+
+  // Auto-mark as seen when video ends; if autoplay is on jump to next episode immediately
   mainVideo.addEventListener("ended", () => {
-    if (activeEpisode && !seenEpisodes.has(activeEpisode.number)) {
-      toggleEpisodeSeen(activeEpisode.number);
+    if (activeEpisode) {
+      updateEpisodeProgressBar(activeEpisode.number, 100);
+      episodeProgress[activeEpisode.number] = 100;
+      saveEpisodeProgress();
+      if (!seenEpisodes.has(activeEpisode.number)) {
+        toggleEpisodeSeen(activeEpisode.number);
+      }
+
+      // Countdown already ran during the last 5s — jump straight to next episode
+      if (autoplayEnabled && !autoplayCancelled) {
+        const nextEpisode = getNextEpisode();
+        if (nextEpisode) {
+          hideAutoplayCountdown();
+          selectEpisode(nextEpisode);
+        }
+      } else {
+        hideAutoplayCountdown();
+      }
     }
   });
+
+  // Autoplay toggle button
+  autoplayToggleBtn.addEventListener("click", () => {
+    autoplayEnabled = !autoplayEnabled;
+    saveAutoplayState();
+    applyAutoplayToggleUI();
+    // Cancel any running countdown if the user disables autoplay mid-countdown
+    if (!autoplayEnabled) {
+      hideAutoplayCountdown();
+    }
+  });
+
+  // Cancel button: dismiss countdown for this episode without disabling autoplay globally
+  autoplayCancelBtn.addEventListener("click", () => {
+    autoplayCancelled = true;
+    hideAutoplayCountdown();
+  });
+}
+
+// Handle video time updates: red progress bar + autoplay synchronized countdown
+function handleVideoTimeUpdate() {
+  if (!activeEpisode || !mainVideo.duration || isNaN(mainVideo.duration)) return;
+
+  const currentTime = mainVideo.currentTime;
+  const duration = mainVideo.duration;
+  const timeRemaining = duration - currentTime;
+  const percentage = Math.min(100, Math.round((currentTime / duration) * 100));
+
+  // Update the visual progress bar under the thumbnail in real time
+  updateEpisodeProgressBar(activeEpisode.number, percentage);
+
+  // Persist progress periodically (throttled) to avoid excessive writes
+  const now = Date.now();
+  episodeProgress[activeEpisode.number] = percentage;
+  if (now - lastProgressSaveTime > 2000) {
+    saveEpisodeProgress();
+    lastProgressSaveTime = now;
+  }
+
+  // Autoplay countdown: show overlay when 5s remain, synchronized with playback
+  if (autoplayEnabled && !autoplayCancelled) {
+    const nextEpisode = getNextEpisode();
+    if (nextEpisode && timeRemaining <= 5 && timeRemaining > 0) {
+      showAutoplayCountdown(nextEpisode, timeRemaining);
+    } else if (timeRemaining > 5 && !autoplayOverlay.classList.contains("hidden")) {
+      // User seeked back past the 5s window — hide the overlay
+      hideAutoplayCountdown();
+    }
+  }
 }
 
 // Set active filter mode
