@@ -59,6 +59,9 @@ async function init() {
   // 1. Register Service Worker
   registerServiceWorker();
 
+  // Seed initial history state so Android back button has somewhere to go
+  history.replaceState({ screen: "picker" }, "");
+
   // 2. Load persisted state from localStorage (migrate old format if needed)
   migrateLocalStorage();
   loadSeenEpisodes();
@@ -178,15 +181,31 @@ async function loadSeason(season) {
 }
 
 // Switch between season picker and main app screens
-function showScreen(screen) {
+function showScreen(screen, pushHistory = true) {
   if (screen === "picker") {
     seasonPickerScreen.classList.remove("hidden");
     mainAppScreen.classList.add("hidden");
   } else {
     seasonPickerScreen.classList.add("hidden");
     mainAppScreen.classList.remove("hidden");
+    if (pushHistory) history.pushState({ screen: "app" }, "");
   }
 }
+
+// Go back to season picker — shared by back button and Android back gesture
+function goBackToPicker() {
+  hideAutoplayCountdown();
+  mainVideo.pause();
+  activeSeason = null;
+  renderSeasonPicker(); // calls showScreen("picker") — no history push
+}
+
+// Android back button / browser back support
+window.addEventListener("popstate", () => {
+  if (!mainAppScreen.classList.contains("hidden")) {
+    goBackToPicker();
+  }
+});
 
 // Register PWA Service Worker
 function registerServiceWorker() {
@@ -582,12 +601,9 @@ function setupEventListeners() {
     }
   });
 
-  // Back to seasons button
+  // Back to seasons button — triggers history.back() so popstate handles it consistently
   backToSeasonsBtn.addEventListener("click", () => {
-    hideAutoplayCountdown();
-    mainVideo.pause();
-    activeSeason = null;
-    renderSeasonPicker();
+    history.back();
   });
 
   // Autoplay toggle button
