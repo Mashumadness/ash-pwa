@@ -1,0 +1,45 @@
+name: coda-run
+
+on:
+  workflow_dispatch:
+    inputs:
+      prompt:
+        description: 'Qué querés pedirle a CODA'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  run-coda:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install CODA CLI
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/GEAI/g-coda/develop/scripts/install-coda-prod.sh | bash
+          echo "$HOME/.coda/bin" >> "$GITHUB_PATH"
+
+      - name: Configure provider (non-interactive)
+        env:
+          CODA_API_KEY: ${{ secrets.CODA_API_KEY }}
+        run: |
+          echo "$CODA_API_KEY" | coda configure \
+            --provider glob-ai --instance clients \
+            --api-key-stdin --profile-name ci
+
+      - name: Run CODA headless
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          coda --cwd "$GITHUB_WORKSPACE" \
+               -p "${{ inputs.prompt }}" \
+               --auto-approve \
+               --output json
