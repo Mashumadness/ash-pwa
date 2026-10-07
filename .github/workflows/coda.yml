@@ -39,5 +39,5 @@ jobs:
         run: |
           coda --cwd "$GITHUB_WORKSPACE" \
                -p "${{ inputs.prompt }}" \
-               --auto-approve \
+               --auto-approve all \
                --output json
