@@ -23,9 +23,7 @@ jobs:
           fetch-depth: 0
 
       - name: Install CODA CLI
-        run: |
-          curl -fsSL https://raw.githubusercontent.com/GEAI/g-coda/develop/scripts/install-coda-prod.sh | bash
-          echo "$HOME/.coda/bin" >> "$GITHUB_PATH"
+        run: npm install -g @globant/coda
 
       - name: Configure provider (non-interactive)
         env:
